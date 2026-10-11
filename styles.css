@@ -1901,3 +1901,10 @@ textarea {
     bottom: auto;
   }
 }
+
+/* 모바일에서는 범례 숨김 */
+@media (max-width: 768px) {
+  body.home .legend {
+    display: none;
+  }
+}

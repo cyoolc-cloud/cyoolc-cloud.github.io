@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function fitView() {
     const mobile = isMobile();
     const area = mobile
-      ? { x0: 16, x1: W - 16, y0: 84, y1: H - 44 }
+      ? { x0: 16, x1: W - 16, y0: 84, y1: H - 16 }
       : { x0: W > 1000 ? 32 + 560 + 48 : 32, x1: W - 40, y0: 110, y1: H - 100 };
     const pad = 30;
     const xs = nodes.map((d) => d.x);
