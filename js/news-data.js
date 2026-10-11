@@ -10,6 +10,14 @@ const baseNewsItems = [
     "url": ""
   },
   {
+    "id": "base-2026-08-edsd",
+    "date": "2026-08",
+    "category": "선발",
+    "title": "김화연, European Doctoral School of Demography 장학생 선발",
+    "content": "독일 막스플랑크 인구연구소와 유럽 주요 인구학 교육기관이 연계해 운영하는 11개월 집중 훈련 프로그램(EDSD)의 장학생으로 선발되었습니다. 프로그램 참여와 체류 비용을 전액 지원받습니다.",
+    "url": ""
+  },
+  {
     "id": "base-2026-07-symposium-kim",
     "date": "2026-07",
     "category": "발표",
@@ -63,14 +71,6 @@ const baseNewsItems = [
     "category": "수상",
     "title": "김화연, 한국사회과학자료원 우수논문상",
     "content": "석사학위논문으로 2026 한국사회과학자료원 우수논문상을 받았습니다.",
-    "url": ""
-  },
-  {
-    "id": "base-2026-01-edsd",
-    "date": "2026-01",
-    "category": "선발",
-    "title": "김화연, European Doctoral School of Demography 장학생 선발",
-    "content": "독일 막스플랑크 인구연구소와 유럽 주요 인구학 교육기관이 연계해 운영하는 11개월 집중 훈련 프로그램(EDSD)의 장학생으로 선발되었습니다. 프로그램 참여와 체류 비용을 전액 지원받습니다.",
     "url": ""
   },
   {
