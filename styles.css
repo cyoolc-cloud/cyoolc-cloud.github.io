@@ -1953,3 +1953,29 @@ textarea {
     grid-template-columns: 4.2rem 1fr;
   }
 }
+
+/* Contact 주소: 두 줄 고정 */
+.contact-list .addr div {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .contact-list {
+    padding: 1.2rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-list li {
+    grid-template-columns: 3.9rem 1fr;
+  }
+
+  .contact-list span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-list .addr div {
+    white-space: normal;
+  }
+}
