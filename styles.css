@@ -770,6 +770,15 @@ textarea {
   padding: 0 1rem 2.5rem;
 }
 
+.visit-count {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  opacity: 0.55;
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .site-nav {
@@ -2030,4 +2039,107 @@ textarea {
   .contact-list .addr div {
     white-space: normal;
   }
+}
+
+/* ---------- Research: 리스트 보기 ---------- */
+.view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-left: 0.7rem;
+  vertical-align: middle;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0;
+}
+
+.view-switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+
+.view-switch button:hover,
+.view-switch button:focus-visible {
+  color: var(--theme-strong);
+}
+
+.view-switch button.is-active {
+  color: #e83e8c;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: default;
+}
+
+.view-sep {
+  color: var(--border-strong);
+  font-weight: 300;
+}
+
+.paper-icon {
+  display: inline-block;
+  transform-origin: 50% 90%;
+  animation: paper-wiggle 3.2s ease-in-out infinite;
+}
+
+@keyframes paper-wiggle {
+  0%, 78%, 100% { transform: rotate(0); }
+  82% { transform: rotate(-10deg); }
+  86% { transform: rotate(8deg); }
+  90% { transform: rotate(-5deg); }
+  94% { transform: rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-icon {
+    animation: none;
+  }
+}
+
+.ref-list {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+}
+
+.ref-list li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 2.6em;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.ref-no {
+  position: absolute;
+  left: 0;
+  width: 2em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.ref-list a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.ref-list a:hover {
+  color: var(--theme-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.ref-list em {
+  font-style: italic;
 }

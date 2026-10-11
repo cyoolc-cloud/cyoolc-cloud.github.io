@@ -20,8 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (workRoot && filterRoot) {
     // Research 페이지는 학술지 게재 논문만 표시 (학회 발표는 네트워크와 소식에서 확인)
     const PAPERS = WORKS.filter((w) => w.kind === 'paper');
-    let activeTheme = new URLSearchParams(window.location.search).get('theme');
+    const params = new URLSearchParams(window.location.search);
+    let activeTheme = params.get('theme');
     if (!THEMES[activeTheme]) activeTheme = null;
+    // 리스트 보기: 연도별로 제목만 간단히 표시
+    let listView = params.get('view') === 'list';
+    const viewSwitch = document.querySelector('.view-switch');
+    // 리스트 번호: 가장 오래된 논문이 1번 (data.js는 최신순)
+    const paperNo = Object.fromEntries(PAPERS.map((w, i) => [w.id, PAPERS.length - i]));
+    const syncUrl = () => {
+      const q = new URLSearchParams();
+      if (activeTheme) q.set('theme', activeTheme);
+      if (listView) q.set('view', 'list');
+      history.replaceState(null, '', `research.html${q.toString() ? `?${q}` : ''}`);
+    };
 
     // 학생 이름은 초록 굵게, 최율 교수 이름은 짙은 갈색 굵게
     const DIRECTOR_NAMES = ['최율', 'Yool Choi'];
@@ -61,23 +73,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const shown = PAPERS.filter((w) => !activeTheme || w.themes.includes(activeTheme));
       const years = [...new Set(shown.map((w) => w.year))].sort((a, b) => b - a);
-      workRoot.innerHTML = years
-        .map(
-          (y) => `
+
+      // 리스트 보기: 연도 구분 없이 참고문헌 형식으로 정리
+      // 저자 (연도). 제목. 학술지, 권(호), 쪽.
+      const refHtml = (w) => {
+        const [journal, ...rest] = w.venues[0].split(',').map((x) => x.trim());
+        const venue = `<em>${journal}</em>${rest.length ? `, ${rest.join(', ')}` : ''}`;
+        return `<li><span class="ref-no">${paperNo[w.id]}.</span>${w.authors.join(', ')} (${w.year}). <a href="research.html#${w.id}" data-id="${w.id}">${w.title}</a>${/[?!.]$/.test(w.title) ? '' : '.'} ${venue}.</li>`;
+      };
+
+      workRoot.innerHTML = listView
+        ? `<ol class="ref-list">${[...shown].sort((a, b) => b.year - a.year).map(refHtml).join('')}</ol>`
+        : years
+            .map(
+              (y) => `
         <section class="year-group">
           <h2>${y}</h2>
           <ul class="work-list">${shown.filter((w) => w.year === y).map(workHtml).join('')}</ul>
         </section>`
-        )
-        .join('');
+            )
+            .join('');
+      if (viewSwitch) {
+        viewSwitch.querySelectorAll('button[data-view]').forEach((b) => {
+          const on = (b.dataset.view === 'list') === listView;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+      }
     };
+
+    if (viewSwitch) {
+      viewSwitch.addEventListener('click', (e) => {
+        const b = e.target.closest('button[data-view]');
+        if (!b) return;
+        const next = b.dataset.view === 'list';
+        if (next === listView) return;
+        listView = next;
+        syncUrl();
+        render();
+      });
+    }
+
+    // 리스트에서 제목을 누르면 자세히 보기로 돌아가 해당 논문으로 이동
+    workRoot.addEventListener('click', (e) => {
+      const a = e.target.closest('.ref-list a[data-id]');
+      if (!a) return;
+      e.preventDefault();
+      listView = false;
+      syncUrl();
+      history.replaceState(null, '', `${location.pathname}${location.search}#${a.dataset.id}`);
+      render();
+      highlightTarget();
+    });
 
     filterRoot.addEventListener('click', (e) => {
       const btn = e.target.closest('button[data-theme]');
       if (!btn) return;
       activeTheme = btn.dataset.theme || null;
-      const url = activeTheme ? `research.html?theme=${activeTheme}` : 'research.html';
-      history.replaceState(null, '', url);
+      syncUrl();
       render();
     });
 

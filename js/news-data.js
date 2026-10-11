@@ -114,6 +114,22 @@ const baseNewsItems = [
     "url": ""
   },
   {
+    "id": "base-2025-02-paper-eh",
+    "date": "2025-02",
+    "category": "출판",
+    "title": "Harris Hyun-soo Kim·최율, Ethnicity & Health 30(2) 논문 게재",
+    "content": "“A paradox of white privilege: race, psychological resilience, and mental well-being during a public health crisis”가 게재되었습니다.",
+    "url": ""
+  },
+  {
+    "id": "base-2025-01-paper-demres",
+    "date": "2025-01",
+    "category": "출판",
+    "title": "이지원·최율, Demographic Research 52(4) 논문 게재",
+    "content": "“Decriminalization of adultery likely changed women’s views on divorce following spousal infidelity in South Korea”가 게재되었습니다.",
+    "url": ""
+  },
+  {
     "id": "base-2024-12-ksa-kim",
     "date": "2024-12",
     "category": "발표",
@@ -127,6 +143,14 @@ const baseNewsItems = [
     "category": "발표",
     "title": "이하영, International Postgraduate & Academic Conference 2024 발표",
     "content": "“Why Don’t Women Choose STEM Careers?: A Longitudinal Analysis of the Determinants of STEM Careers, from Middle School to the Labor Market”을 발표했습니다. (온라인)",
+    "url": ""
+  },
+  {
+    "id": "base-2024-01-paper-pph",
+    "date": "2024-01",
+    "category": "출판",
+    "title": "최율·Harris Hyun-soo Kim, Perspectives in Public Health 144(1) 논문 게재",
+    "content": "“Social capital, food insecurity, and health outcomes in the US during the COVID-19 pandemic”이 게재되었습니다.",
     "url": ""
   },
   {
@@ -191,6 +215,14 @@ const baseNewsItems = [
     "category": "발표",
     "title": "이하영·최율, 한국사회학회 정기사회학대회 발표",
     "content": "“전공선호에서 전공선택으로: STEM 선택의 이중 장애물”을 발표했습니다. (서울)",
+    "url": ""
+  },
+  {
+    "id": "base-2022-12-paper-rssm",
+    "date": "2022-12",
+    "category": "출판",
+    "title": "계봉오·황선재·김지연·최율, Research in Social Stratification and Mobility 77 논문 게재",
+    "content": "“Intragenerational occupational mobility of South Korea, 1998–2017: Implications of the gendered life course approach for mobility and inequality studies”가 게재되었습니다.",
     "url": ""
   }
 ];

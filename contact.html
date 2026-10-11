@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=202610111101" />
+    <link rel="stylesheet" href="styles.css?v=202610111657" />
   </head>
   <body>
     <nav class="site-nav" aria-label="주요 메뉴">
@@ -38,8 +38,29 @@
         <li><span>Address</span><div class="addr"><div>서울특별시 동작구 흑석로 84</div><div>중앙대학교 사회학과 사무실 (06974)</div></div></li>
       </ul>
     </main>
-    <footer class="site-footer">© 2026 CAU Inequality Lab · Department of Sociology, Chung-Ang University</footer>
+    <footer class="site-footer">
+      © 2026 CAU Inequality Lab · Department of Sociology, Chung-Ang University
+      <span class="visit-count" id="visit-count" hidden></span>
+    </footer>
 
-    <script src="js/nav.js?v=202610111101"></script>
+    <script src="js/nav.js?v=202610111657"></script>
+    <script>
+      // 오늘·누적 방문자 수 (GoatCounter). 불러오지 못하면 아무것도 표시하지 않음
+      (() => {
+        const base = 'https://cauinequality.goatcounter.com/counter/TOTAL.json';
+        const d = new Date();
+        const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        const get = (q) => fetch(base + q).then((r) => (r.ok ? r.json() : Promise.reject())).then((j) => j.count);
+        Promise.all([get(`?start=${today}&end=${today}`), get('')])
+          .then(([t, all]) => {
+            const el = document.getElementById('visit-count');
+            el.textContent = `today ${t} · total ${all}`;
+            el.hidden = false;
+          })
+          .catch(() => {});
+      })();
+    </script>
+    <!-- 방문자 집계 (GoatCounter, 대시보드: https://cauinequality.goatcounter.com) -->
+    <script data-goatcounter="https://cauinequality.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   </body>
 </html>

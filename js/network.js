@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 출간 논문은 파란색, 학회 발표는 연한 회색
+  const LABEL_ABOVE = new Set(['t:lifecourse']);
   const colorOf = (d) => COLORS[d.type === 'work' && d.ref.kind === 'talk' ? 'talk' : d.type];
 
   // ---------- Build graph ----------
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nodeR = (d) => {
     const m = isMobile();
     if (d.type === 'theme') return 6 + d.count * 1.8;
-    if (d.type === 'person') return 7 + d.count * 1.5;
+    if (d.type === 'person') return m ? 9 : 8;
     return m ? 7 : 6;
   };
 
@@ -186,9 +187,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineWidth = 4 / scale;
         ctx.strokeStyle = 'rgba(243, 241, 236, 0.95)';
         const text = d.type === 'theme' ? `# ${d.label}` : d.label;
-        ctx.strokeText(text, d.px, d.py + r + 4);
+        // 다른 이름과 겹치는 노드는 이름을 점 위에 표시
+        const above = LABEL_ABOVE.has(d.id);
+        ctx.textBaseline = above ? 'bottom' : 'top';
+        const ly = above ? d.py - r - 4 : d.py + r + 4;
+        ctx.strokeText(text, d.px, ly);
         ctx.fillStyle = d.type === 'theme' ? c.hover : d.type === 'person' ? c.hover : '#161616';
-        ctx.fillText(text, d.px, d.py + r + 4);
+        ctx.fillText(text, d.px, ly);
       }
       ctx.globalAlpha = 1;
     });
