@@ -1897,7 +1897,7 @@ textarea {
   }
 
   body.home .legend {
-    top: calc(58vh - 3.2rem);
+    top: calc(72vh - 3.2rem);
     bottom: auto;
   }
 }

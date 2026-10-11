@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctx = canvas.getContext('2d');
   const DPR = window.devicePixelRatio || 1;
   // 모바일에서는 네트워크가 화면 위쪽 일부만 차지하고, 아래로 소개·소식이 이어짐
-  const MOBILE_CANVAS_RATIO = 0.58;
+  const MOBILE_CANVAS_RATIO = 0.72;
   const canvasHeight = () =>
     window.innerWidth <= 768 ? Math.round(window.innerHeight * MOBILE_CANVAS_RATIO) : window.innerHeight;
   let W = window.innerWidth;
