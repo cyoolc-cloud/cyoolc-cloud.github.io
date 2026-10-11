@@ -47,8 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const introCard = document.getElementById('intro-card');
   const ctx = canvas.getContext('2d');
   const DPR = window.devicePixelRatio || 1;
+  // 모바일에서는 네트워크가 화면 위쪽 일부만 차지하고, 아래로 소개·소식이 이어짐
+  const MOBILE_CANVAS_RATIO = 0.58;
+  const canvasHeight = () =>
+    window.innerWidth <= 768 ? Math.round(window.innerHeight * MOBILE_CANVAS_RATIO) : window.innerHeight;
   let W = window.innerWidth;
-  let H = window.innerHeight;
+  let H = canvasHeight();
 
   const isMobile = () => window.innerWidth <= 768;
   const introVisible = () => introCard && introCard.style.display !== 'none';
@@ -81,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const resize = () => {
     W = window.innerWidth;
-    H = window.innerHeight;
+    H = canvasHeight();
     canvas.width = W * DPR;
     canvas.height = H * DPR;
     canvas.style.width = `${W}px`;
@@ -383,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function fitView() {
     const mobile = isMobile();
     const area = mobile
-      ? { x0: 16, x1: W - 16, y0: 90, y1: (document.querySelector('.side-panel')?.getBoundingClientRect().top || H * 0.45) - 8 }
+      ? { x0: 16, x1: W - 16, y0: 84, y1: H - 44 }
       : { x0: W > 1000 ? 32 + 560 + 48 : 32, x1: W - 40, y0: 110, y1: H - 100 };
     const pad = 30;
     const xs = nodes.map((d) => d.x);
@@ -426,7 +430,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-zoom-out').addEventListener('click', () => zoomAround(W / 2, H / 2, 0.8));
   document.getElementById('btn-zoom-reset').addEventListener('click', recenter);
 
+  // 모바일에서 스크롤할 때 주소창이 숨겨지며 생기는 높이 변화는 무시 (폭이 바뀔 때만 다시 배치)
+  let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
+    if (isMobile() && window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
     resize();
     applyForces();
     fitView();

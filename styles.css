@@ -1861,3 +1861,43 @@ textarea {
     grid-row: 1 / span 2;
   }
 }
+
+/* ---------- 모바일 메인: 네트워크 → 소개 → 최근 소식이 위에서 아래로 이어지는 스크롤 화면 ---------- */
+@media (max-width: 768px) {
+  body.home {
+    overflow: auto;
+    height: auto;
+  }
+
+  body.home #network-container {
+    height: auto;
+    width: 100%;
+  }
+
+  body.home #network-viz {
+    touch-action: pan-y;
+  }
+
+  body.home .side-panel {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0 1rem 2rem;
+    gap: 1rem;
+    pointer-events: auto;
+  }
+
+  body.home .news-card {
+    max-height: 26rem;
+    min-height: 0;
+  }
+
+  body.home .news-card-list {
+    overflow-y: auto;
+  }
+
+  body.home .legend {
+    top: calc(58vh - 3.2rem);
+    bottom: auto;
+  }
+}
