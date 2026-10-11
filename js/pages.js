@@ -23,7 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeTheme = new URLSearchParams(window.location.search).get('theme');
     if (!THEMES[activeTheme]) activeTheme = null;
 
-    const authorHtml = (name) => (personByName[name] ? `<strong>${name}</strong>` : name);
+    // 학생 이름은 초록 굵게, 최율 교수 이름은 짙은 갈색 굵게
+    const DIRECTOR_NAMES = ['최율', 'Yool Choi'];
+    const authorHtml = (name) =>
+      DIRECTOR_NAMES.includes(name)
+        ? `<strong class="director-name">${name}</strong>`
+        : personByName[name]
+          ? `<strong>${name}</strong>`
+          : name;
 
     const workHtml = (w) => `
       <li class="card work" id="${w.id}">

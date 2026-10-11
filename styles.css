@@ -1908,3 +1908,48 @@ textarea {
     display: none;
   }
 }
+
+/* Research: 최율 교수 이름 강조 (학생과 같은 굵기, 짙은 갈색) */
+.work .authors strong.director-name {
+  color: #6e4a24;
+}
+
+/* People: Prospective Students 라벨 — 공간이 되면 옆에, 아니면 아래 왼쪽 정렬 */
+.prospect .other-en {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.7rem;
+}
+
+.prospect .other-en .prospect-ko {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .prospect .other-en {
+    letter-spacing: 0.1em;
+  }
+
+  .prospect .other-en .prospect-ko {
+    font-size: 0.7rem;
+    padding: 0.08rem 0.45rem;
+  }
+}
+
+/* Contact: 항목명과 내용을 두 칸으로, 내용이 길면 내용 칸 안에서 줄바꿈 */
+.contact-list li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  align-items: baseline;
+}
+
+.contact-list span {
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .contact-list li {
+    grid-template-columns: 4.2rem 1fr;
+  }
+}
