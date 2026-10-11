@@ -1197,32 +1197,3 @@ const SIGNIFICANT_OTHERS = [
     "linkText": "inequality.kr"
   }
 ];
-
-// 대학원생 멘토 네트워크 (중요한 타자 섹션 아래 한 줄)
-const MENTORS = {
-  "title": "대학원생 멘토 네트워크",
-  "desc": "연구실 공동연구에 함께하며 대학원생들의 다양한 멘토 역할을 해주시는 연구자들입니다.",
-  "people": [
-    {
-      "name": "이지원 박사님",
-      "note": "Cornell University 박사후연구원",
-      "url": "https://jiwonlee.net/"
-    },
-    {
-      "name": "이지원 박사님",
-      "note": "University at Albany, SUNY 사회학 박사",
-      "url": "https://g1lee.notion.site/"
-    },
-    {
-      "name": "류정균 박사님",
-      "note": "경기연구원",
-      "url": ""
-    },
-    {
-      "name": "임영신 박사님",
-      "note": "삼성글로벌리서치",
-      "url": ""
-    }
-  ]
-};
-
