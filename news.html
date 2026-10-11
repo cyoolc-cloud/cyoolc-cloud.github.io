@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News · CAU Inequality Lab</title>
+    <meta name="description" content="CAU Inequality Lab — 중앙대학교 사회학과 최율 교수 연구실. 사회불평등, 교육, 노동시장, 인구변동 연구." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="index.html" class="logo">
+        <span class="logo-main">CAU <span>Inequality Lab</span></span>
+        <span class="logo-sub">Department of Sociology · Chung-Ang University</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <ul class="nav-links">
+        <li><a href="news.html" aria-current="page">News</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="page">
+      <header class="page-head">
+        <p class="eyebrow">LAB NEWS</p>
+        <h1>연구실 소식</h1>
+      </header>
+
+      <div class="news-board" role="region" aria-label="연구실 소식 게시판">
+        <ul class="news-list" id="news-list"></ul>
+
+        <article class="card news-detail" id="news-detail" hidden>
+          <p class="news-detail-meta" id="news-detail-meta"></p>
+          <h3 class="news-detail-title" id="news-detail-title"></h3>
+          <p class="news-detail-body" id="news-detail-body"></p>
+          <a class="news-detail-link" id="news-detail-link" href="#" target="_blank" rel="noreferrer">관련 링크 열기</a>
+        </article>
+      </div>
+
+
+    </main>
+    <footer class="site-footer">© 2026 CAU Inequality Lab · Department of Sociology, Chung-Ang University</footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/news.js"></script>
+  </body>
+</html>

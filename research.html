@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research · CAU Inequality Lab</title>
+    <meta name="description" content="CAU Inequality Lab — 중앙대학교 사회학과 최율 교수 연구실. 사회불평등, 교육, 노동시장, 인구변동 연구." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="index.html" class="logo">
+        <span class="logo-main">CAU <span>Inequality Lab</span></span>
+        <span class="logo-sub">Department of Sociology · Chung-Ang University</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <ul class="nav-links">
+        <li><a href="news.html">News</a></li>
+        <li><a href="research.html" aria-current="page">Research</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="page">
+      <header class="page-head">
+        <p class="eyebrow">RESEARCH</p>
+        <h1>논문</h1>
+        <p>CAU Inequality Lab의 학술지 게재 논문입니다. 각 연구가 무엇을 발견했고 어떤 의미가 있는지 쉽게 풀어 소개합니다. 주제를 눌러 관련 논문만 볼 수 있습니다.</p>
+      </header>
+
+      <div class="theme-filter" id="theme-filter"></div>
+      <div id="work-list"></div>
+    </main>
+    <footer class="site-footer">© 2026 CAU Inequality Lab · Department of Sociology, Chung-Ang University</footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/pages.js"></script>
+  </body>
+</html>

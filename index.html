@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAU Inequality Lab</title>
+    <meta name="description" content="CAU Inequality Lab — 중앙대학교 사회학과 최율 교수 연구실. 사회불평등, 교육, 노동시장, 인구변동 연구." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home">
+    <div class="ambient-overlay" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="index.html" class="logo">
+        <span class="logo-main">CAU <span>Inequality Lab</span></span>
+        <span class="logo-sub">Department of Sociology · Chung-Ang University</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+      <ul class="nav-links">
+        <li><a href="news.html">News</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="network-container">
+      <canvas id="network-viz" aria-label="연구실 구성원, 연구, 연구 주제의 연결망. 노드를 클릭하면 상세 페이지로 이동합니다."></canvas>
+
+      <div class="side-panel">
+      <section class="hud intro-card" id="intro-card">
+        <p class="card-eyebrow"><span>01</span>About the Lab</p>
+        <h1>불평등은 어떻게 만들어지는가</h1>
+        <p>
+          CAU Inequality Lab은 계층구조와 인구구조가 만나는 접점에서 불평등이 형성되고 재생산되는 과정을 연구합니다.
+          교육과 노동시장, 가족과 출산, 이주와 건강까지 한국 사회의 첨예한 문제를 대규모 데이터와 최신 통계기법,
+          Agentic AI를 활용한 연구 방법으로 분석합니다.
+        </p>
+        <p class="intro-statement">
+          모두가 당연하게 여기는 통념도 근거 앞에서는 다시 질문됩니다. Inequality Lab은 강도 높은 방법론 트레이닝과 긴밀한
+          공동연구를 통해, 익숙한 인식 너머의 새로운 목소리를 내고, 독립된 신진 연구자를 키워내는 것을 목표로 합니다.
+        </p>
+      </section>
+
+      <section class="hud news-card" aria-labelledby="news-card-title">
+        <div class="news-card-head">
+          <p class="card-eyebrow" id="news-card-title"><span>02</span>Lab News</p>
+          <a href="news.html">전체 보기 →</a>
+        </div>
+        <ul class="news-card-list" id="home-news"></ul>
+      </section>
+      </div>
+
+      <div class="hud legend" aria-hidden="true">
+        <span class="legend-item"><span class="legend-dot" style="background: var(--person)"></span>학생</span>
+        <span class="legend-item"><span class="legend-dot" style="background: var(--work)"></span>논문</span>
+        <span class="legend-item"><span class="legend-dot" style="background: var(--talk)"></span>발표</span>
+        <span class="legend-item"><span class="legend-dot" style="background: var(--theme)"></span>연구 주제</span>
+      </div>
+
+      <div class="hud controls">
+        <button id="btn-zoom-in" type="button" title="확대" aria-label="확대">+</button>
+        <button id="btn-zoom-out" type="button" title="축소" aria-label="축소">−</button>
+        <button id="btn-zoom-reset" type="button" title="가운데로" aria-label="가운데로">⤢</button>
+      </div>
+
+      <div id="net-tooltip" role="tooltip"></div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/home-news.js"></script>
+  </body>
+</html>
