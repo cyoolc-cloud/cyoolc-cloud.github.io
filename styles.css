@@ -2187,3 +2187,30 @@ textarea {
   height: 14px;
   fill: var(--text-secondary);
 }
+
+/* 메인 소개 첫 문단: 자간을 살짝 줄여 데스크톱에서 네 줄로 정리 */
+.intro-card p:not(.intro-statement) {
+  letter-spacing: -0.02em;
+}
+
+/* 로고 뒤 [CYLAB] 태그 (CY = 최율). CY는 로고 제목과 같은 색, LAB은 회색 */
+.logo .logo-main .logo-tag {
+  margin-left: 0.2em;
+  font-family: 'Fraunces', var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+}
+
+.logo .logo-main .logo-tag b,
+.logo .logo-main .logo-y,
+.cylab b {
+  color: var(--text-primary);
+  font-weight: inherit;
+}
+
+.cylab {
+  color: var(--text-secondary);
+}
