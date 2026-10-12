@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .join('')}
         ${p.now || p.notes.length ? `<ul class="notes">${[p.now, ...p.notes].filter(Boolean).map((n) => `<li>${n}</li>`).join('')}</ul>` : ''}
         ${recordList('논문', works.filter((w) => w.kind === 'paper'), (w) => `<a href="research.html#${w.id}">${w.title}</a> <span class="rec-meta">${w.venues[0].split(',')[0]}, ${w.year}</span>`)}
-        ${recordList('발표', works.filter((w) => w.kind === 'talk'), (w) => `${w.title} <span class="rec-meta">${w.venues[w.venues.length - 1].replace(/^(\d{4})\.\d{2}\s*/, '').split(',')[0]}${w.venues.length > 1 ? ' 외' : ''}, ${w.year}</span>`)}
+        ${recordList('발표', works.filter((w) => w.kind === 'talk'), (w) => `${w.title}<span class="rec-meta rec-venues">${w.venues.map((v) => `<span>${v}</span>`).join('')}</span>`)}
       </article>`;
     };
 

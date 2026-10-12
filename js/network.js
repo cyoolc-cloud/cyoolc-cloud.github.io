@@ -290,7 +290,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const action = touch ? '한 번 더 탭하면 열기' : '클릭하면 열기';
     if (d.type === 'work') {
       const w = d.ref;
-      return `<div class="tt-header">${w.title}</div><div class="tt-meta">${w.year} · ${w.kind === 'paper' ? '논문' : '학회 발표'} · ${w.authors.join(', ')}${w.kind === 'paper' ? `<br>${action}` : ''}</div>`;
+      if (w.kind === 'talk') {
+        // 발표: 저자 다음에 발표 장소를 최근 순으로
+        const venues = [...w.venues].sort((a, b) => b.localeCompare(a));
+        return `<div class="tt-header">${w.title}</div><div class="tt-meta">${w.authors.join(', ')}<br>${venues.join('<br>')}</div>`;
+      }
+      return `<div class="tt-header">${w.title}</div><div class="tt-meta">${w.year} · 논문 · ${w.authors.join(', ')}<br>${action}</div>`;
     }
     if (d.type === 'person') {
       return `<div class="tt-header">${d.ref.name} <span style="font-weight:400;color:#77716a">${d.ref.en}</span></div><div class="tt-meta">${d.ref.title}<br>연구 ${d.count}건 연결 · ${action}</div>`;

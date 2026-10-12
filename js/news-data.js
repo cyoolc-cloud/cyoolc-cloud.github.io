@@ -154,6 +154,22 @@ const baseNewsItems = [
     "url": ""
   },
   {
+    "id": "base-2023-12-ksa-adultery",
+    "date": "2023-12",
+    "category": "발표",
+    "title": "최율·이지원, 한국사회학회 후기사회학대회 발표",
+    "content": "“The Impact of Adultery Law Abolition on Women’s Attitudes towards Divorce in South Korea”를 발표했습니다.",
+    "url": ""
+  },
+  {
+    "id": "base-2023-12-ksa-protestant",
+    "date": "2023-12",
+    "category": "발표",
+    "title": "최율·백경민·장서현, 한국사회학회 후기사회학대회 발표",
+    "content": "“Protestant religiosity and conservative attitudes on social issues”를 발표했습니다.",
+    "url": ""
+  },
+  {
     "id": "base-2023-12-grad-lee",
     "date": "2023-12",
     "category": "학위",

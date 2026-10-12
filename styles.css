@@ -2214,3 +2214,13 @@ textarea {
 .cylab {
   color: var(--text-secondary);
 }
+
+/* People: 발표 기록은 발표 장소를 한 줄에 하나씩 */
+.rec-venues {
+  display: block;
+  margin-top: 0.1rem;
+}
+
+.rec-venues span {
+  display: block;
+}
