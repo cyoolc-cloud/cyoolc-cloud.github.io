@@ -245,3 +245,11 @@ const baseNewsItems = [
 
 // 소식 목록 (메인 화면과 News 페이지가 함께 사용)
 const loadNewsItems = () => baseNewsItems;
+
+// 축하할 소식(진학·수상·출판)에는 제목 끝에 「祝」 도장을 찍음
+const CELEBRATE = ['진학', '수상', '출판'];
+// 목록 순서대로 조금씩 늦게 찍혀서 도장이 차례로 '쿵, 쿵' 찍히는 느낌
+const celebrateStamp = (item, i = 0) =>
+  CELEBRATE.includes(item.category)
+    ? `<span class="celebrate-stamp" style="animation-delay: ${(0.4 + i * 0.12).toFixed(2)}s" aria-label="축하">祝</span>`
+    : '';

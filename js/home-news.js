@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 전체 소식을 모두 넣고, 카드 안에서 스크롤해 지난 소식까지 볼 수 있게 함
   list.innerHTML = items
     .map(
-      (item) => `
+      (item, i) => `
       <li>
         <a href="news.html#${encodeURIComponent(item.id)}">
           <span class="news-card-meta">${item.date}<br>${item.category}</span>
-          <span class="news-card-title">${item.title}</span>
+          <span class="news-card-title">${item.title}${celebrateStamp(item, i)}</span>
         </a>
       </li>`
     )

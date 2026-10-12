@@ -71,11 +71,11 @@ const openNewsDetail = (item) => {
 if (newsList) {
   newsList.innerHTML = sortNewsItems(newsItems)
     .map(
-      (item) => `
+      (item, i) => `
       <li class="news-item">
         <span class="news-date">${item.date}</span>
         <span class="news-tag">${item.category}</span>
-        <p class="news-title">${item.title}</p>
+        <p class="news-title">${item.title}${celebrateStamp(item, i)}</p>
         <button class="news-link" type="button" data-id="${item.id}" aria-expanded="false">보기</button>
       </li>`
     )

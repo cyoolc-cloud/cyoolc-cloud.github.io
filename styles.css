@@ -2224,3 +2224,92 @@ textarea {
 .rec-venues span {
   display: block;
 }
+
+/* 소식: 진학·수상·출판에 찍히는 「祝」 도장
+   들어 올렸다가 '쿵' 내려찍고(살짝 눌렸다 복원), 인주가 번지듯 원이 퍼진 뒤 약 15초 멈췄다가 다시 찍힘 */
+.celebrate-stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  margin-left: 0.45em;
+  border: 1.6px solid #c8372d;
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 0.98em;
+  font-weight: 700;
+  line-height: 1;
+  color: #c8372d;
+  text-shadow: 0 0 0.6px rgba(200, 55, 45, 0.6);
+  vertical-align: 0.05em;
+  transform: rotate(-12deg);
+  opacity: 0.9;
+  animation: stamp-press 15.6s cubic-bezier(0.2, 0.8, 0.3, 1) 0.4s infinite both;
+}
+
+.celebrate-stamp::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200, 55, 45, 0.45);
+  opacity: 0;
+  animation: stamp-ink 15.6s ease-out infinite both;
+  animation-delay: inherit;
+  pointer-events: none;
+}
+
+@keyframes stamp-press {
+  0% {
+    transform: translateY(-0.5em) rotate(-20deg) scale(2.1);
+    opacity: 0;
+    filter: blur(1.5px);
+  }
+  1.95% {
+    transform: translateY(0) rotate(-12deg) scale(0.86);
+    opacity: 1;
+    filter: blur(0);
+  }
+  2.9% {
+    transform: rotate(-13deg) scale(1.07);
+  }
+  3.9% {
+    transform: rotate(-11.5deg) scale(0.98);
+  }
+  4.9%,
+  95.6% {
+    transform: rotate(-12deg) scale(1);
+    opacity: 0.9;
+  }
+  98.1%,
+  100% {
+    transform: translateY(-0.3em) rotate(-16deg) scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes stamp-ink {
+  0%,
+  1.9% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  1.95% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  6.3%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .celebrate-stamp,
+  .celebrate-stamp::after {
+    animation: none;
+  }
+}
