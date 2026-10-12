@@ -2340,3 +2340,9 @@ textarea {
   border-radius: 50%;
   vertical-align: 0.2em;
 }
+
+/* 로고: CAU의 AU는 뒤 글자와 같은 회색 (굵기는 그대로) — C와 Y만 진하게 */
+.logo .logo-main .logo-au {
+  color: var(--text-secondary);
+  font-weight: inherit;
+}
