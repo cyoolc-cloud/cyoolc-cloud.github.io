@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 출간 논문은 파란색, 학회 발표는 연한 회색
-  // 다른 이름과 겹치는 노드는 이름 위치를 따로 지정 ('above' | 'left')
-  const LABEL_POS = { 't:lifecourse': 'left' };
+  // 다른 이름과 겹치는 노드는 이름 위치를 따로 지정 ('above' | 'left'), 데스크톱에만 적용
+  const LABEL_POS = { 't:lifecourse': 'above' };
   // 학생 노드는 하리보 곰젤리 모양, 학생마다 다른 젤리 색
   const GUMMY = ['#e8413c', '#f39a1e', '#f2c81d', '#4caf50', '#a51d2d', '#c0307a', '#ef6a3a', '#7cbf3a', '#f05a7e', '#f7b733', '#3fa66b'];
   const gummyPath = (x, y, r) => {
@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
       chargeTheme: m ? -200 : -520,
       chargeOther: m ? -80 : -200,
       collide: m ? 9 : 16,
+      // 학생(곰젤리) 주변은 이름이 다른 점과 겹치지 않도록 조금 더 띄움
+      collidePerson: m ? 6 : 14,
     };
   };
 
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .force('center', d3.forceCenter(center.x, center.y))
       .force('x', d3.forceX(center.x).strength(0.06))
       .force('y', d3.forceY(center.y).strength(0.06))
-      .force('collision', d3.forceCollide().radius((d) => nodeR(d) + fp.collide));
+      .force('collision', d3.forceCollide().radius((d) => nodeR(d) + fp.collide + (d.type === 'person' ? fp.collidePerson : 0)));
   };
   applyForces();
 
@@ -235,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineWidth = 4 / scale;
         ctx.strokeStyle = 'rgba(243, 241, 236, 0.95)';
         const text = d.type === 'theme' ? `# ${d.label}` : d.label;
-        const pos = LABEL_POS[d.id];
+        const pos = isMobile() ? null : LABEL_POS[d.id];
         let lx = d.px;
         let ly = d.py + r + 4;
         if (pos === 'above') {
