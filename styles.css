@@ -2193,15 +2193,25 @@ textarea {
   letter-spacing: -0.02em;
 }
 
-/* 로고 뒤 [CYLAB] 태그 (CY = 최율). CY는 로고 제목과 같은 색, LAB은 회색 */
-.logo .logo-main .logo-tag {
-  margin-left: 0.2em;
-  font-family: 'Fraunces', var(--font-serif);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 0.85em;
-  letter-spacing: 0;
+/* [CYLAB] (CY = 최율): 로고와 본문 모두 같은 코드 느낌 글씨체(Space Mono, 기울임 없음)
+   CY는 로고 제목과 같은 진한 색, LAB은 회색 */
+.logo .logo-main .logo-tag,
+.cylab {
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--text-secondary);
+}
+
+.logo .logo-main .logo-tag {
+  margin-left: 0.25em;
+  font-size: 0.62em;
+  vertical-align: 0.15em;
+}
+
+.cylab {
+  font-size: 0.88em;
 }
 
 .logo .logo-main .logo-tag b,
@@ -2209,10 +2219,6 @@ textarea {
 .cylab b {
   color: var(--text-primary);
   font-weight: inherit;
-}
-
-.cylab {
-  color: var(--text-secondary);
 }
 
 /* People: 발표 기록은 발표 장소를 한 줄에 하나씩 */
@@ -2311,5 +2317,14 @@ textarea {
   .celebrate-stamp,
   .celebrate-stamp::after {
     animation: none;
+  }
+}
+
+/* 메인 인용 문단: 세로선을 카드 여백 쪽으로 살짝 당겨 데스크톱에서 두 줄로 */
+@media (min-width: 769px) {
+  .intro-card .intro-statement {
+    margin-left: -1rem;
+    padding-left: 0.75rem;
+    letter-spacing: -0.02em;
   }
 }
