@@ -8,7 +8,50 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // 출간 논문은 파란색, 학회 발표는 연한 회색
-  const LABEL_ABOVE = new Set(['t:lifecourse']);
+  // 다른 이름과 겹치는 노드는 이름 위치를 따로 지정 ('above' | 'left')
+  const LABEL_POS = { 't:lifecourse': 'left' };
+  // 학생 노드는 하리보 곰젤리 모양, 학생마다 다른 젤리 색
+  const GUMMY = ['#e8413c', '#f39a1e', '#f2c81d', '#4caf50', '#a51d2d', '#c0307a', '#ef6a3a', '#7cbf3a', '#f05a7e', '#f7b733', '#3fa66b'];
+  const gummyPath = (x, y, r) => {
+    const s = r / 1.1;
+    const p = new Path2D();
+    const circ = (cx, cy, rr) => {
+      p.moveTo(x + cx * s + rr * s, y + cy * s);
+      p.arc(x + cx * s, y + cy * s, rr * s, 0, Math.PI * 2);
+    };
+    const ell = (cx, cy, rx, ry, rot = 0) => {
+      p.moveTo(x + cx * s + rx * s * Math.cos(rot), y + cy * s + rx * s * Math.sin(rot));
+      p.ellipse(x + cx * s, y + cy * s, rx * s, ry * s, rot, 0, Math.PI * 2);
+    };
+    circ(-0.36, -0.98, 0.2); // 귀
+    circ(0.36, -0.98, 0.2);
+    circ(0, -0.58, 0.48); // 머리
+    ell(0, 0.28, 0.5, 0.6); // 몸통
+    ell(-0.5, 0.05, 0.17, 0.32, 0.6); // 팔
+    ell(0.5, 0.05, 0.17, 0.32, -0.6);
+    circ(-0.3, 0.84, 0.24); // 다리
+    circ(0.3, 0.84, 0.24);
+    return p;
+  };
+  const drawGummy = (x, y, r, fill, isHov) => {
+    const s = r / 1.1;
+    ctx.save();
+    ctx.shadowBlur = isHov ? 12 : 2;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+    ctx.globalAlpha *= 0.92;
+    ctx.fillStyle = fill;
+    ctx.fill(gummyPath(x, y, r));
+    ctx.restore();
+    // 젤리 광택
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+    ctx.beginPath();
+    ctx.ellipse(x - 0.2 * s, y - 0.72 * s, 0.12 * s, 0.07 * s, -0.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(x - 0.22 * s, y + 0.05 * s, 0.1 * s, 0.2 * s, 0.2, 0, Math.PI * 2);
+    ctx.fill();
+  };
+
   const colorOf = (d) => COLORS[d.type === 'work' && d.ref.kind === 'talk' ? 'talk' : d.type];
 
   // ---------- Build graph ----------
@@ -26,9 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const nodes = [
     ...WORKS.map((w) => ({ id: `w:${w.id}`, type: 'work', ref: w, label: w.label })),
     ...Object.keys(themeCount).map((t) => ({ id: `t:${t}`, type: 'theme', key: t, label: THEMES[t], count: themeCount[t] })),
-    ...PEOPLE.filter((p) => workCount[p.id]).map((p) => ({
+    ...PEOPLE.filter((p) => workCount[p.id]).map((p, i) => ({
       id: `p:${p.id}`,
       type: 'person',
+      gummy: i,
       ref: p,
       label: p.name,
       count: workCount[p.id],
@@ -80,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nodeR = (d) => {
     const m = isMobile();
     if (d.type === 'theme') return 6 + d.count * 1.8;
-    if (d.type === 'person') return m ? 9 : 8;
+    if (d.type === 'person') return m ? 10 : 9;
     return m ? 7 : 6;
   };
 
@@ -169,13 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillStyle = c.glow;
         ctx.fill();
       }
-      ctx.beginPath();
-      ctx.arc(d.px, d.py, r, 0, Math.PI * 2);
-      ctx.fillStyle = isHov ? c.hover : c.base;
-      ctx.shadowBlur = isHov ? 12 : 2;
-      ctx.shadowColor = c.glow;
-      ctx.fill();
-      ctx.shadowBlur = 0;
+      if (d.type === 'person') {
+        drawGummy(d.px, d.py, r, GUMMY[d.gummy % GUMMY.length], isHov);
+      } else {
+        ctx.beginPath();
+        ctx.arc(d.px, d.py, r, 0, Math.PI * 2);
+        ctx.fillStyle = isHov ? c.hover : c.base;
+        ctx.shadowBlur = isHov ? 12 : 2;
+        ctx.shadowColor = c.glow;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
 
       // 주제·구성원 이름은 항상, 연구 제목은 마우스를 올렸을 때만 표시
       const showLabel = d.type !== 'work' || isHov || (hovered && isNeighbor(d));
@@ -187,13 +235,21 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineWidth = 4 / scale;
         ctx.strokeStyle = 'rgba(243, 241, 236, 0.95)';
         const text = d.type === 'theme' ? `# ${d.label}` : d.label;
-        // 다른 이름과 겹치는 노드는 이름을 점 위에 표시
-        const above = LABEL_ABOVE.has(d.id);
-        ctx.textBaseline = above ? 'bottom' : 'top';
-        const ly = above ? d.py - r - 4 : d.py + r + 4;
-        ctx.strokeText(text, d.px, ly);
+        const pos = LABEL_POS[d.id];
+        let lx = d.px;
+        let ly = d.py + r + 4;
+        if (pos === 'above') {
+          ctx.textBaseline = 'bottom';
+          ly = d.py - r - 4;
+        } else if (pos === 'left') {
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          lx = d.px - r - 5;
+          ly = d.py;
+        }
+        ctx.strokeText(text, lx, ly);
         ctx.fillStyle = d.type === 'theme' ? c.hover : d.type === 'person' ? c.hover : '#161616';
-        ctx.fillText(text, d.px, ly);
+        ctx.fillText(text, lx, ly);
       }
       ctx.globalAlpha = 1;
     });
