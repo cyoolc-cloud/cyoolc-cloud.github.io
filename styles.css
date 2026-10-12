@@ -2328,3 +2328,15 @@ textarea {
     letter-spacing: -0.02em;
   }
 }
+
+/* 로고: Inequalit∘Y — 빈 가운뎃점으로 Y를 떼어 CY(CAU InequalitY · 최율)가 따로 읽히도록
+   점 양옆 간격(t–점, 점–Y)이 눈으로 같아 보이게 오른쪽 여백을 조금 줄임 */
+.logo .logo-main .logo-dot {
+  display: inline-block;
+  width: 0.22em;
+  height: 0.22em;
+  margin: 0 0.024em 0 0.05em;
+  border: 1.5px solid var(--text-secondary);
+  border-radius: 50%;
+  vertical-align: 0.2em;
+}
