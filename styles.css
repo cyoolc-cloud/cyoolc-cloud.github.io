@@ -2425,3 +2425,67 @@ textarea {
   12%, 80% { opacity: 1; transform: translate(-50%, -100%); }
   100% { opacity: 0; transform: translate(-50%, -110%); }
 }
+
+/* Research: 카드/리스트 전환을 알약 모양 스위치로 — 두 개 중 하나를 고를 수 있다는 게 바로 보이게.
+   선택된 쪽은 핫핑크로 채우고, 선택 안 된 쪽 아이콘이 가끔 살짝 흔들려 눌러보라는 신호를 줌 */
+.view-switch {
+  gap: 0;
+  margin-left: 1rem;
+  padding: 3px;
+  border: 1.5px solid var(--text-primary);
+  border-radius: 999px;
+  background: var(--bg-card);
+  font-size: 0.9rem;
+  vertical-align: 0.35em;
+}
+
+.view-switch button {
+  gap: 0.4em;
+  padding: 0.38em 0.95em;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.view-switch button:hover,
+.view-switch button:focus-visible {
+  color: #e83e8c;
+  background: rgba(232, 62, 140, 0.08);
+}
+
+.view-switch button.is-active,
+.view-switch button.is-active:hover {
+  background: #e83e8c;
+  color: #fff;
+  cursor: default;
+}
+
+.view-icon {
+  width: 0.95em;
+  height: 0.95em;
+  fill: currentColor;
+  transform-origin: 50% 80%;
+}
+
+.view-switch button:not(.is-active) .view-icon {
+  animation: paper-wiggle 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view-switch button:not(.is-active) .view-icon {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .view-switch {
+    font-size: 0.8rem;
+    margin-left: 0.6rem;
+  }
+}
+
+.is-list-view .card-only {
+  display: none;
+}

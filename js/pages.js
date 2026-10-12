@@ -93,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>`
             )
             .join('');
+      // 리스트 보기에서는 '쉽게 풀어 소개' 문장을 숨김
+      document.body.classList.toggle('is-list-view', listView);
       if (viewSwitch) {
         viewSwitch.querySelectorAll('button[data-view]').forEach((b) => {
           const on = (b.dataset.view === 'list') === listView;
