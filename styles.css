@@ -509,6 +509,12 @@ body.home {
   margin-bottom: 0.4rem;
 }
 
+/* 통념을 뒤집는 핵심 발견 한 문장 */
+.work .summary strong {
+  font-weight: 600;
+  color: var(--text-primary, inherit);
+}
+
 .work .keywords {
   font-size: 0.78rem;
   color: var(--text-secondary);
