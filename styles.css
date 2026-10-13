@@ -2495,3 +2495,20 @@ textarea {
 .is-list-view .card-only {
   display: none;
 }
+
+/* People: 학부연구생 라벨 옆 곰젤리 줄. 마지막 한 마리는 옆모습으로 문을 여는 중 */
+.prospect-bears {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.prospect-bears .pb {
+  height: 22px;
+  width: auto;
+}
+
+.prospect-bears .pb-door {
+  margin-left: 3px;
+  height: 25px;
+}
