@@ -42,7 +42,6 @@ const PEOPLE = [
     "career": [
       "2020– 중앙대학교 사회학과 부교수",
       "2017–2020 한국교원대학교 일반사회교육과 조교수",
-      "2015–2016 한양대학교 SSK 다문화연구단 박사후연구원",
       "2013–2014 American Educational Research Association Dissertation Grant Fellow"
     ],
     "courses": [
