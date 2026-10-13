@@ -33,8 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
     circ(0.3, 0.84, 0.24);
     return p;
   };
-  const drawGummy = (x, y, r, fill, isHov) => {
+  // wobble: 0이면 가만히, 그 외에는 위상(phase) 값. 발끝을 축으로 좌우로 흔들리며 살짝 늘었다 줄었다 함
+  const drawGummy = (x, y, r, fill, isHov, wobble = null) => {
     const s = r / 1.1;
+    ctx.save();
+    if (wobble !== null) {
+      const t = performance.now() / 1000;
+      const tilt = 0.11 * Math.sin(t * 2.4 + wobble);
+      const squash = 0.035 * Math.sin(t * 4.8 + wobble);
+      const footY = y + 1.08 * s;
+      ctx.translate(x, footY);
+      ctx.rotate(tilt);
+      ctx.scale(1 + squash, 1 - squash);
+      ctx.translate(-x, -footY);
+    }
     ctx.save();
     ctx.shadowBlur = isHov ? 12 : 2;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
@@ -50,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.beginPath();
     ctx.ellipse(x - 0.22 * s, y + 0.05 * s, 0.1 * s, 0.2 * s, 0.2, 0, Math.PI * 2);
     ctx.fill();
+    ctx.restore();
   };
 
   const colorOf = (d) => COLORS[d.type === 'work' && d.ref.kind === 'talk' ? 'talk' : d.type];
@@ -216,7 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fill();
       }
       if (d.type === 'person') {
-        drawGummy(d.px, d.py, r, GUMMY[d.gummy % GUMMY.length], isHov);
+        // 곰젤리는 젤리처럼 좌우로 말랑하게 흔들림 (마우스를 올린 곰과 움직임 줄이기 사용자는 고정)
+        const wobble = DRIFT && !isHov && d !== dragNode ? d.gummy * 1.9 : null;
+        drawGummy(d.px, d.py, r, GUMMY[d.gummy % GUMMY.length], isHov, wobble);
       } else {
         ctx.beginPath();
         ctx.arc(d.px, d.py, r, 0, Math.PI * 2);

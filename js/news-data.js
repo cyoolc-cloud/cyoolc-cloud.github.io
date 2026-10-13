@@ -249,7 +249,8 @@ const loadNewsItems = () => baseNewsItems;
 // 축하할 소식(진학·수상·출판)에는 제목 끝에 「祝」 도장을 찍음
 const CELEBRATE = ['진학', '수상', '출판'];
 // 목록 순서대로 조금씩 늦게 찍혀서 도장이 차례로 '쿵, 쿵' 찍히는 느낌
-const celebrateStamp = (item, i = 0) =>
+// start: 첫 도장까지 기다리는 시간(초), step: 다음 도장까지 간격(초)
+const celebrateStamp = (item, i = 0, start = 0.4, step = 0.12) =>
   CELEBRATE.includes(item.category)
-    ? `<span class="celebrate-stamp" style="animation-delay: ${(0.4 + i * 0.12).toFixed(2)}s" aria-label="축하">祝</span>`
+    ? `<span class="celebrate-stamp" style="animation-delay: ${(start + i * step).toFixed(2)}s" aria-label="축하">祝</span>`
     : '';
