@@ -45,8 +45,8 @@ const PEOPLE = [
       "2013–2014 American Educational Research Association Dissertation Grant Fellow"
     ],
     "courses": [
-      "학부: 불평등과 사회계층, 사회인구학, 사회조사방법론, 교육사회학",
-      "대학원: 사회인구학, 교육사회학, 사회통계학, 사회불평등론"
+      "학부: 불평등과 사회계층, 사회인구학, 교육사회학, 사회조사방법론",
+      "대학원: 사회불평등론, 사회인구학, 교육사회학, 사회통계학"
     ],
     "notes": []
   },
