@@ -18,6 +18,22 @@ const baseNewsItems = [
     "url": ""
   },
   {
+    "id": "base-2026-08-paper-net",
+    "date": "2026-08",
+    "category": "출판",
+    "title": "Gaeul Choi·최율 외, Nuclear Engineering and Technology 59 논문 게재",
+    "content": "“Heterogeneity in community acceptance of urban SMR siting: A contingent valuation and latent class analysis”가 게재되었습니다.",
+    "url": ""
+  },
+  {
+    "id": "base-2026-06-paper-jas",
+    "date": "2026-06",
+    "category": "출판",
+    "title": "이지원·최율, Journal of Asian Sociology 55(2) 논문 게재",
+    "content": "“STEMming from Childhood? The Role of Childhood in Gender Disparities in Adolescent STEM Aspirations in South Korea”가 게재되었습니다.",
+    "url": ""
+  },
+  {
     "id": "base-2026-07-symposium-kim",
     "date": "2026-07",
     "category": "발표",

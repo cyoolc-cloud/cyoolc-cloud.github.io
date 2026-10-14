@@ -174,6 +174,66 @@ const PEOPLE = [
 // plain: Research 페이지에 보이는 쉬운 설명 (초록 기반, 핵심 발견과 함의 중심)
 const WORKS = [
   {
+    "id": "p30",
+    "label": "도심 SMR 입지 수용성",
+    "title": "Heterogeneity in community acceptance of urban SMR siting: A contingent valuation and latent class analysis",
+    "year": 2026,
+    "kind": "paper",
+    "authors": [
+      "Gaeul Choi",
+      "Yool Choi",
+      "Taehyon Choi",
+      "Keonhee Lee",
+      "Sungyeol Choi"
+    ],
+    "venues": [
+      "Nuclear Engineering and Technology, 59, 104643"
+    ],
+    "doi": "10.1016/j.net.2026.104643",
+    "keywords": [
+      "Small modular reactor",
+      "Urban siting",
+      "Community acceptance",
+      "Contingent valuation method",
+      "Latent class analysis"
+    ],
+    "summary": "도시 거주자 2,456명을 대상으로 한 이중양분선택형 조건부가치측정 조사 결과, 소형모듈원자로(SMR) 입지 수용의 연간 1인당 중위 수용의사금액(WTA)은 11만 1천 원이었으며, 응답자는 제시액 수용(52.6%), 금액 조건부 수용(25.4%), 보상과 무관한 거부(22.0%)로 나뉘었다. 잠재계층분석으로 위험·편익·신뢰·공정성 인식에 따른 다섯 집단을 식별했으며, 인구학적 특성의 설명력은 제한적이었다.",
+    "plain": "우리 동네에 소형 원자로가 들어온다면, 보상이 얼마면 받아들일 수 있을까요? 전력 수요가 몰린 수도권 가까이에 SMR을 짓는 방안이 논의되고 있지만, 정작 주민들이 어떻게 반응할지는 거의 알려져 있지 않았습니다. 도시 거주자 2,456명에게 물어보니 절반 남짓은 제시된 보상액을 받아들였고, 4분의 1은 금액에 따라 달라졌으며, <strong>다섯 명 중 한 명은 얼마를 주어도 거부했습니다.</strong> 이런 차이는 나이나 소득보다 위험·편익·신뢰·공정성을 어떻게 느끼는지에 따라 갈렸습니다. 주민 반응은 '찬성 대 반대'로 단순히 나눌 수 없으며, 집단마다 다른 소통과 이익 공유 방식이 필요합니다.",
+    "themes": [
+      "hetero"
+    ]
+  },
+  {
+    "id": "p29",
+    "label": "아동기와 STEM 진로 희망",
+    "title": "STEMming from Childhood? The Role of Childhood in Gender Disparities in Adolescent STEM Aspirations in South Korea",
+    "year": 2026,
+    "kind": "paper",
+    "authors": [
+      "Jiwon Lee",
+      "Yool Choi"
+    ],
+    "venues": [
+      "Journal of Asian Sociology, 55(2), 91–136"
+    ],
+    "doi": "10.21588/dns.2026.55.2.001",
+    "keywords": [
+      "STEM",
+      "gender segregation",
+      "occupational plans",
+      "occupational aspiration",
+      "PSKC"
+    ],
+    "summary": "한국아동패널과 한국교육종단연구 두 출생·학년 코호트 자료를 분석한 결과, 초등학교 3학년 시점에 이미 남학생이 여학생보다 STEM 직업을 희망할 가능성이 6–8배 높았고, 이 격차는 양육·수학 능력과 흥미·삶의 목표로 설명되지 않았다. 고등학교 2학년 STEM 진로 의향의 성별 격차 중 약 22%는 초등 5학년 시점의 STEM 희망과 그 지속성의 차이에서 비롯되었다.",
+    "plain": "여성이 이공계에 적은 이유는 언제부터 시작될까요? 흔히 고등학교 진로 선택이나 대학 전공을 떠올리지만, 전국 단위 아동·청소년 종단 자료로 1만 건이 넘는 장래희망 응답을 분류해 보니 <strong>초등학교 3학년이면 이미 남자아이가 STEM 직업을 꿈꿀 가능성이 여자아이보다 6~8배 높았습니다.</strong> 이 차이는 부모의 양육 방식이나 수학 실력·흥미로도 설명되지 않았고, 고등학교 2학년의 성별 격차 가운데 약 22%는 초등학교 때 생긴 희망과 그것이 이어진 정도에서 비롯되었습니다. 이공계 성별 격차를 줄이려면 청소년기 이전, 어린 시절부터 주목해야 합니다.",
+    "themes": [
+      "gender",
+      "stem",
+      "education",
+      "lifecourse"
+    ]
+  },
+  {
     "id": "p28",
     "label": "아동보육 실태와 변화",
     "title": "2010-2020년 아동보육 실태와 변화 양상: 인구주택총조사 자료를 중심으로",
