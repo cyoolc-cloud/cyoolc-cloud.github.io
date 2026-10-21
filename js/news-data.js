@@ -1,8 +1,16 @@
 // 연구실 소식 데이터 (메인 화면의 최근 소식 카드와 News 페이지가 함께 사용)
-// 새 소식은 맨 위에 추가하세요. 날짜는 'YYYY-MM' 형식입니다.
+// 이 목록은 publish.sh가 소식.txt로부터 자동으로 만듭니다. 직접 고치지 말고 소식.txt를 고치세요.
 const baseNewsItems = [
   {
-    "id": "base-2026-09-uiowa",
+    "id": "news-033",
+    "date": "2026-07",
+    "category": "발표",
+    "title": "김화연·최율·계봉오, READI 학술대회 포스터 발표",
+    "content": "“Who supports Elderly Parents in Need? The Structure of Active and Latent Intergenerational Ties in Korea”를 Research on East Asian Demography and Inequality (READI) Conference에서 포스터로 발표했습니다. (홍콩)",
+    "url": ""
+  },
+  {
+    "id": "news-032",
     "date": "2026-09",
     "category": "진학",
     "title": "이하영, University of Iowa Sociology Ph.D. 과정 입학",
@@ -10,7 +18,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-08-edsd",
+    "id": "news-031",
     "date": "2026-08",
     "category": "수상",
     "title": "김화연, European Doctoral School of Demography 장학생 선발",
@@ -18,7 +26,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-08-paper-net",
+    "id": "news-030",
     "date": "2026-08",
     "category": "출판",
     "title": "Gaeul Choi·최율 외, Nuclear Engineering and Technology 59 논문 게재",
@@ -26,15 +34,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-06-paper-jas",
-    "date": "2026-06",
-    "category": "출판",
-    "title": "이지원·최율, Journal of Asian Sociology 55(2) 논문 게재",
-    "content": "“STEMming from Childhood? The Role of Childhood in Gender Disparities in Adolescent STEM Aspirations in South Korea”가 게재되었습니다.",
-    "url": ""
-  },
-  {
-    "id": "base-2026-07-symposium-kim",
+    "id": "news-029",
     "date": "2026-07",
     "category": "발표",
     "title": "김화연·최율·이지원, 불평등연구회 학술 심포지움 발표",
@@ -42,7 +42,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-07-symposium-lee",
+    "id": "news-028",
     "date": "2026-07",
     "category": "발표",
     "title": "이규림·최율, 불평등연구회 학술 심포지움 발표",
@@ -50,7 +50,15 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-05-poster-kim",
+    "id": "news-027",
+    "date": "2026-06",
+    "category": "출판",
+    "title": "이지원·최율, Journal of Asian Sociology 55(2) 논문 게재",
+    "content": "“STEMming from Childhood? The Role of Childhood in Gender Disparities in Adolescent STEM Aspirations in South Korea”가 게재되었습니다.",
+    "url": ""
+  },
+  {
+    "id": "news-026",
     "date": "2026-05",
     "category": "발표",
     "title": "김화연·최율·이지원, 한국인구학회 전기학술대회 포스터 발표",
@@ -58,7 +66,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-05-poster-lee",
+    "id": "news-025",
     "date": "2026-05",
     "category": "발표",
     "title": "이규림·최율, 한국인구학회 전기학술대회 포스터 발표",
@@ -66,7 +74,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-04-buffalo",
+    "id": "news-024",
     "date": "2026-04",
     "category": "발표",
     "title": "김화연·최율·이지원, University at Buffalo 워크숍 발표",
@@ -74,7 +82,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-03-paper",
+    "id": "news-023",
     "date": "2026-03",
     "category": "출판",
     "title": "김화연·최율, 『한국인구학』 49(1) 논문 게재",
@@ -82,7 +90,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2026-ksdc-award",
+    "id": "news-022",
     "date": "2026",
     "category": "수상",
     "title": "김화연, 한국사회과학자료원 우수논문상",
@@ -90,7 +98,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-12-ksa-lee",
+    "id": "news-021",
     "date": "2025-12",
     "category": "발표",
     "title": "이규림·최율, 한국사회학회 후기사회학대회 발표",
@@ -98,7 +106,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-12-readi",
+    "id": "news-020",
     "date": "2025-12",
     "category": "발표",
     "title": "이규림·최율, READI Student/Early-Career Seminar 발표",
@@ -106,7 +114,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-12-keio",
+    "id": "news-019",
     "date": "2025-12",
     "category": "발표",
     "title": "김화연·최율, 게이오대학교 세미나 발표",
@@ -114,7 +122,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-08-grad-kim",
+    "id": "news-018",
     "date": "2025-08",
     "category": "학위",
     "title": "김화연, 석사학위 취득",
@@ -122,7 +130,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-02-grad-jeon",
+    "id": "news-017",
     "date": "2025-02",
     "category": "학위",
     "title": "전병찬, 석사학위 취득",
@@ -130,7 +138,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-02-paper-eh",
+    "id": "news-016",
     "date": "2025-02",
     "category": "출판",
     "title": "Harris Hyun-soo Kim·최율, Ethnicity & Health 30(2) 논문 게재",
@@ -138,7 +146,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2025-01-paper-demres",
+    "id": "news-015",
     "date": "2025-01",
     "category": "출판",
     "title": "이지원·최율, Demographic Research 52(4) 논문 게재",
@@ -146,7 +154,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2024-12-ksa-kim",
+    "id": "news-014",
     "date": "2024-12",
     "category": "발표",
     "title": "김화연·최율, 한국사회학회 후기사회학대회 발표",
@@ -154,7 +162,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2024-02-ipac",
+    "id": "news-013",
     "date": "2024-02",
     "category": "발표",
     "title": "이하영, International Postgraduate & Academic Conference 2024 발표",
@@ -162,7 +170,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2024-01-paper-pph",
+    "id": "news-012",
     "date": "2024-01",
     "category": "출판",
     "title": "최율·Harris Hyun-soo Kim, Perspectives in Public Health 144(1) 논문 게재",
@@ -170,7 +178,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-ksa-adultery",
+    "id": "news-011",
     "date": "2023-12",
     "category": "발표",
     "title": "최율·이지원, 한국사회학회 후기사회학대회 발표",
@@ -178,7 +186,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-ksa-protestant",
+    "id": "news-010",
     "date": "2023-12",
     "category": "발표",
     "title": "최율·백경민·장서현, 한국사회학회 후기사회학대회 발표",
@@ -186,7 +194,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-grad-lee",
+    "id": "news-009",
     "date": "2023-12",
     "category": "학위",
     "title": "이하영, 석사학위 취득",
@@ -194,7 +202,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-kasr-award",
+    "id": "news-008",
     "date": "2023-12",
     "category": "수상",
     "title": "전병찬·이하영, 한국조사연구학회 추계학술대회 우수논문상",
@@ -202,7 +210,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-kasr",
+    "id": "news-007",
     "date": "2023-12",
     "category": "발표",
     "title": "전병찬·이하영·최율, 한국조사연구학회 추계학술대회 발표",
@@ -210,7 +218,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-12-ksa",
+    "id": "news-006",
     "date": "2023-12",
     "category": "발표",
     "title": "전병찬·이하영·최율, 한국사회학회 후기사회학대회 발표",
@@ -218,7 +226,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-09-paper",
+    "id": "news-005",
     "date": "2023-09",
     "category": "출판",
     "title": "이하영·최율, 『한국인구학』 46(3) 논문 게재",
@@ -226,7 +234,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-06-korea-univ",
+    "id": "news-004",
     "date": "2023-06",
     "category": "발표",
     "title": "이하영·최율, International Conference on Lives of Women (and Men) in Contemporary Korea 발표",
@@ -234,7 +242,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2023-02-ipac",
+    "id": "news-003",
     "date": "2023-02",
     "category": "발표",
     "title": "이하영·최율, International Postgraduate & Academic Conference 2023 발표",
@@ -242,7 +250,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2022-12-ksa",
+    "id": "news-002",
     "date": "2022-12",
     "category": "발표",
     "title": "이하영·최율, 한국사회학회 정기사회학대회 발표",
@@ -250,7 +258,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "base-2022-12-paper-rssm",
+    "id": "news-001",
     "date": "2022-12",
     "category": "출판",
     "title": "계봉오·황선재·김지연·최율, Research in Social Stratification and Mobility 77 논문 게재",

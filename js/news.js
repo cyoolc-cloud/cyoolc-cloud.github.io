@@ -1,5 +1,5 @@
 // 연구실 소식 게시판 (읽기 전용)
-// 새 소식은 js/news-data.js의 baseNewsItems 맨 위에 추가하세요.
+// 새 소식은 소식.txt에 적고 publish.sh를 실행하세요 (js/news-data.js는 자동으로 만들어짐).
 const newsItems = loadNewsItems();
 
 const newsList = document.querySelector('#news-list');

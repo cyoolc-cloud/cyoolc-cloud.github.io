@@ -71,7 +71,7 @@ const PEOPLE = [
   {
     "id": "yjha",
     "name": "하유장",
-    "en": "",
+    "en": "Yujang Ha",
     "role": "member",
     "title": "석사과정 (2026.9~)",
     "bio": "",
