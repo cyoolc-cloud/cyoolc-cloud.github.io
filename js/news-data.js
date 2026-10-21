@@ -3,14 +3,6 @@
 const baseNewsItems = [
   {
     "id": "news-033",
-    "date": "2026-07",
-    "category": "발표",
-    "title": "김화연·최율·계봉오, READI 학술대회 포스터 발표",
-    "content": "“Who supports Elderly Parents in Need? The Structure of Active and Latent Intergenerational Ties in Korea”를 Research on East Asian Demography and Inequality (READI) Conference에서 포스터로 발표했습니다. (홍콩)",
-    "url": ""
-  },
-  {
-    "id": "news-032",
     "date": "2026-09",
     "category": "진학",
     "title": "이하영, University of Iowa Sociology Ph.D. 과정 입학",
@@ -18,7 +10,7 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "news-031",
+    "id": "news-032",
     "date": "2026-08",
     "category": "수상",
     "title": "김화연, European Doctoral School of Demography 장학생 선발",
@@ -26,11 +18,19 @@ const baseNewsItems = [
     "url": ""
   },
   {
-    "id": "news-030",
+    "id": "news-031",
     "date": "2026-08",
     "category": "출판",
     "title": "Gaeul Choi·최율 외, Nuclear Engineering and Technology 59 논문 게재",
     "content": "“Heterogeneity in community acceptance of urban SMR siting: A contingent valuation and latent class analysis”가 게재되었습니다.",
+    "url": ""
+  },
+  {
+    "id": "news-030",
+    "date": "2026-07",
+    "category": "발표",
+    "title": "김화연·최율·계봉오, READI 학술대회 포스터 발표",
+    "content": "“Who supports Elderly Parents in Need? The Structure of Active and Latent Intergenerational Ties in Korea”를 Research on East Asian Demography and Inequality (READI) Conference에서 포스터로 발표했습니다. (홍콩)",
     "url": ""
   },
   {
