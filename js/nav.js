@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const address = a.getAttribute('href').replace(/^mailto:/, '').split('?')[0];
       const ok = await copyText(address);
-      showToast(a, ok ? `${address} 복사됨 ✓` : address);
+      showToast(a, ok ? `${address} ${a.dataset.copied || '복사됨 ✓'}` : address);
     });
   });
 });

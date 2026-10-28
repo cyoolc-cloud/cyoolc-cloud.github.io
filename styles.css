@@ -2504,11 +2504,142 @@ textarea {
 }
 
 .prospect-bears .pb {
-  height: 22px;
+  height: 19px;
   width: auto;
+  overflow: visible;
+  opacity: 0.93;
+  filter: drop-shadow(0 1px 0.6px rgba(22, 22, 22, 0.18));
 }
 
 .prospect-bears .pb-door {
   margin-left: 3px;
   height: 25px;
+}
+
+/* People: 문 너머는 블랙홀 — 누르면 상담 메일 주소가 복사됨. 마우스를 올리면 더 빨리 돌고 빨간 곰이 빨려 들어가는 중 */
+.pb-hole {
+  position: relative;
+  display: inline-flex;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+/* 마우스를 올리면 문 아래에 메일 주소가 보임 (누르면 위쪽에 '복사 완료'가 뜨므로 겹치지 않게 아래로) */
+.pb-hole::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translate(-50%, -4px);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #0d0a1c;
+  color: #fff3c4;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.pb-hole:hover::after,
+.pb-hole:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.prospect-bears .pb-hole .pb-door {
+  margin-left: 0;
+  height: 46px;
+}
+
+.bh-swirl {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bh-spin 6s linear infinite;
+}
+
+.pb-red {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.35s ease;
+}
+
+.pb-hole:hover .bh-swirl,
+.pb-hole:focus-visible .bh-swirl {
+  animation-duration: 1.2s;
+}
+
+.pb-hole:hover .pb-red,
+.pb-hole:focus-visible .pb-red {
+  transform: rotate(14deg) skewX(-6deg);
+}
+
+@keyframes bh-spin {
+  to { transform: rotate(-360deg); }
+}
+
+.bh-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bh-pulse 3s ease-in-out infinite;
+}
+
+@keyframes bh-pulse {
+  50% { transform: scale(1.12); opacity: 0.85; }
+}
+
+/* 문 옆 안내는 연필로 쓴 메모처럼: 손글씨 글꼴 + 살짝 번진 흑연색 화살표 */
+.pb-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.3rem;
+  color: #5b5650;
+  align-self: center;
+}
+
+.pb-note {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Nanum Pen Script', var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: rotate(-3deg);
+}
+
+.pb-note small {
+  margin-top: 0.1rem;
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+.pb-arrow {
+  width: 48px;
+  height: 22px;
+  overflow: visible;
+  fill: none;
+  stroke: #5b5650;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pb-arrow-ghost {
+  stroke-width: 0.8;
+  opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bh-pulse,
+  .bh-swirl {
+    animation: none;
+  }
 }
